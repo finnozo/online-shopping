@@ -16,10 +16,10 @@
 </script>
 <!-- Bootstrap core CSS -->
 
-<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="css/shop-homepage.css" rel="stylesheet">
+<link href="/css/shop-homepage.css" rel="stylesheet">
 
 </head>
 
@@ -43,6 +43,12 @@
 				<%@include file="contact.jsp"%>
 			</c:if>
 
+			<!-- Load only when user clicks all Products -->
+			<c:if
+				test="${userClickAllProducts == true or  userClickCategoryProducts == true}">
+				<%@include file="listProducts.jsp"%>
+			</c:if>
+
 		</div>
 
 		<!-- /.container -->
@@ -51,10 +57,10 @@
 		<%@include file="share/footer.jsp"%>
 
 		<!-- Bootstrap core JavaScript -->
-		<script src="vendor/jquery/jquery.min.js"></script>
-		<script src="vendor/popper/popper.min.js"></script>
-		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-		<script src="js/myApp.js"></script>
+		<script src="/vendor/jquery/jquery.min.js"></script>
+		<script src="/vendor/popper/popper.min.js"></script>
+		<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/js/myApp.js"></script>
 	</div>
 </body>
 
