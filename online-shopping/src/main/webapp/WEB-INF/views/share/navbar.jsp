@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -20,6 +19,8 @@
 
 				<li id="listProducts"><a href="/show/all/products">View
 						Product</a></li>
+
+				<li id="manageProducts"><a href="/manage/products">Manage Products</a></li>
 			</ul>
 		</div>
 	</div>

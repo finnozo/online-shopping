@@ -3,8 +3,6 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
-
 <c:set var="contextRoot" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html lang="en">
@@ -67,6 +65,13 @@
 				test="${userClickShowProduct == true }">
 				<%@include file="singleProduct.jsp"%>
 			</c:if>
+			
+			<!-- Load only when user clicks show Products -->
+			<c:if
+				test="${userClickManageProducts == true }">
+				<%@include file="manageProduct.jsp"%>
+			</c:if>
+			
 
 		</div>
 
