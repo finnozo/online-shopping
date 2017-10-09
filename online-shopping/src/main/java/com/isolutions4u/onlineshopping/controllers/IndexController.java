@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.isolutions4u.onlineshopping.model.Category;
+import com.isolutions4u.onlineshopping.model.Product;
 import com.isolutions4u.onlineshopping.service.CategoryService;
+import com.isolutions4u.onlineshopping.service.ProductService;
 
 @Controller
 public class IndexController {
@@ -17,13 +19,17 @@ public class IndexController {
 	@Qualifier("categoryService")
 	private CategoryService categoryService;
 
+	@Autowired
+	@Qualifier("productService")
+	private ProductService productService;
+
 	@GetMapping(value = { "/", "/home" })
 	public ModelAndView home() {
 		ModelAndView modelAndView = new ModelAndView("page");
 		modelAndView.addObject("userClickHome", true);
 		modelAndView.addObject("title", "Home");
 
-		modelAndView.addObject("categories",categoryService.findAllCategories());
+		modelAndView.addObject("categories", categoryService.findAllCategories());
 
 		return modelAndView;
 	}
@@ -84,6 +90,30 @@ public class IndexController {
 		modelAndView.addObject("category", category);
 
 		return modelAndView;
+	}
+
+	/*
+	 * Viewing a single product
+	 */
+
+	@GetMapping("/show/{id}/product")
+	public ModelAndView showSingleProduct(@PathVariable("id") int id) throws ProductNotFoundExceptoion {
+
+		ModelAndView modelAndView = new ModelAndView("page");
+
+		Product product = productService.findProductById(id);
+
+		if (product == null)
+			throw new ProductNotFoundExceptoion();
+
+		product.setViews(product.getViews() + 1);
+		productService.updateProduct(product);
+		modelAndView.addObject("title", product.getName());
+		modelAndView.addObject("product", product);
+		modelAndView.addObject("userClickShowProduct", true);
+
+		return modelAndView;
+
 	}
 
 }

@@ -13,18 +13,30 @@
 <title>Online Shopping - ${title }</title>
 <script type="text/javascript">
 	window.menu = '${title }';
+	window.contextRoot = '${contextRoot}'
 </script>
 <!-- Bootstrap core CSS -->
 
-<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Custom styles for this template -->
-<link href="/css/shop-homepage.css" rel="stylesheet">
+<!-- Bootstrap Readable Theme -->
+<link href="/css/bootstrap-readable-theme.css" rel="stylesheet">
+
+
+<!-- Bootstrap DataTables -->
+<link href="/css/dataTables.bootstrap.css" rel="stylesheet">
+
+
+<!-- Custom CSS -->
+<link href="/css/myapp.css" rel="stylesheet">
 
 </head>
 
 <body>
+
+
 	<div class="wrapper">
+
 		<!-- Navigation -->
 		<%@include file="share/navbar.jsp"%>
 
@@ -48,6 +60,13 @@
 				test="${userClickAllProducts == true or  userClickCategoryProducts == true}">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
+			
+			
+			<!-- Load only when user clicks show Products -->
+			<c:if
+				test="${userClickShowProduct == true }">
+				<%@include file="singleProduct.jsp"%>
+			</c:if>
 
 		</div>
 
@@ -56,13 +75,25 @@
 		<!-- Footer -->
 		<%@include file="share/footer.jsp"%>
 
-		<!-- Bootstrap core JavaScript -->
-		<script src="/vendor/jquery/jquery.min.js"></script>
-		<script src="/vendor/popper/popper.min.js"></script>
-		<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+		<!-- jQuery -->
+		<script src="/js/jquery.js"></script>
+
+
+		<!-- Bootstrap Core JavaScript -->
+		<script src="/js/bootstrap.min.js"></script>
+
+		<!-- DataTable Plugin -->
 		<script src="/js/jquery.dataTables.js"></script>
-		<script src="/js/myApp.js"></script>
+
+		<!-- DataTable Bootstrap Script -->
+		<script src="/js/dataTables.bootstrap.js"></script>
+
+
+
+		<!-- Self coded javascript -->
+		<script src="/js/myapp.js"></script>
 	</div>
 </body>
 
 </html>
+
