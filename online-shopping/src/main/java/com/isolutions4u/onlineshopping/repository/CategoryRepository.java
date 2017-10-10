@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.isolutions4u.onlineshopping.model.Category;;
 
 @Repository("categoryRepository")
-public interface CategoryRepository extends JpaRepository<Category, Integer>{
+public interface CategoryRepository extends JpaRepository<Category, Integer> {
 
 }

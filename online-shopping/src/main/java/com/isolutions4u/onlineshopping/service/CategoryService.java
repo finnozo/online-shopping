@@ -11,9 +11,9 @@ public interface CategoryService {
 	List<Category> findAllCategories();
 
 	Category findCategoryById(Integer id);
-	
+
 	String deleteCategory(Integer id);
-	
+
 	String updateCategory(Category branch);
 
 }

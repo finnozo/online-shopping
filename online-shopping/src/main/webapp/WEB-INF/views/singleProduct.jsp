@@ -15,7 +15,7 @@
 		<!-- Display the product image -->
 		<div class="col-xs-12 col-sm-4">
 			<div class="thumbnail">
-				<img src="/images/${product.code}.jpg" class="img img-responsive" />
+				<img src="${contextRoot }/static/images/${product.code}.jpg" class="img img-responsive" />
 			</div>
 		</div>
 

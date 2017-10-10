@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 import com.isolutions4u.onlineshopping.model.Product;
 
 @Repository("productRepository")
-public interface ProductRepository extends JpaRepository<Product, Integer>{
-	
+public interface ProductRepository extends JpaRepository<Product, Integer> {
+
 	List<Product> findProductByCategoryId(Integer categoryId);
 
 }

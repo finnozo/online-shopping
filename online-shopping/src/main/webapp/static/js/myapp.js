@@ -56,7 +56,7 @@ if ($table.length) {
 							data : 'code',
 							mRender : function(data, type, row) {
 								return '<img src="' + window.contextRoot
-										+ '/images/' + data + '.jpg" class="dataTableImg"/>'
+										+ '/static/images/' + data + '.jpg" class="dataTableImg"/>'
 							}
 						},
 						{

@@ -5,18 +5,17 @@ import java.util.List;
 import com.isolutions4u.onlineshopping.model.Product;
 
 public interface ProductService {
-	
+
 	String saveProduct(Product product);
 
 	List<Product> findAllProducts();
 
 	Product findProductById(Integer id);
-	
+
 	String deleteProduct(Integer id);
-	
+
 	String updateProduct(Product product);
-	
+
 	List<Product> findProductByCategoryId(Integer categoryId);
-	
 
 }

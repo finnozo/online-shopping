@@ -15,18 +15,18 @@
 </script>
 <!-- Bootstrap core CSS -->
 
-<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="${contextRoot }/static/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Bootstrap Readable Theme -->
-<link href="/css/bootstrap-readable-theme.css" rel="stylesheet">
+<link href="${contextRoot }/static/css/bootstrap-readable-theme.css" rel="stylesheet">
 
 
 <!-- Bootstrap DataTables -->
-<link href="/css/dataTables.bootstrap.css" rel="stylesheet">
+<link href="${contextRoot }/static/css/dataTables.bootstrap.css" rel="stylesheet">
 
 
 <!-- Custom CSS -->
-<link href="/css/myapp.css" rel="stylesheet">
+<link href="${contextRoot }/static/css/myapp.css" rel="stylesheet">
 
 </head>
 
@@ -81,22 +81,22 @@
 		<%@include file="share/footer.jsp"%>
 
 		<!-- jQuery -->
-		<script src="/js/jquery.js"></script>
+		<script src="${contextRoot }/static/js/jquery.js"></script>
 
 
 		<!-- Bootstrap Core JavaScript -->
-		<script src="/js/bootstrap.min.js"></script>
+		<script src="${contextRoot }/static/js/bootstrap.min.js"></script>
 
 		<!-- DataTable Plugin -->
-		<script src="/js/jquery.dataTables.js"></script>
+		<script src="${contextRoot }/static/js/jquery.dataTables.js"></script>
 
 		<!-- DataTable Bootstrap Script -->
-		<script src="/js/dataTables.bootstrap.js"></script>
+		<script src="${contextRoot }/static/js/dataTables.bootstrap.js"></script>
 
 
 
 		<!-- Self coded javascript -->
-		<script src="/js/myapp.js"></script>
+		<script src="${contextRoot }/static/js/myapp.js"></script>
 	</div>
 </body>
 

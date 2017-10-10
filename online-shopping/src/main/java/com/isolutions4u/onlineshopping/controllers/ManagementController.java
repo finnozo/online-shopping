@@ -2,9 +2,13 @@ package com.isolutions4u.onlineshopping.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +20,13 @@ import com.isolutions4u.onlineshopping.model.Category;
 import com.isolutions4u.onlineshopping.model.Product;
 import com.isolutions4u.onlineshopping.service.CategoryService;
 import com.isolutions4u.onlineshopping.service.ProductService;
+import org.springframework.web.multipart.MultipartFile;
+import javax.servlet.http.HttpServletRequest;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Controller
 @RequestMapping("/manage")
@@ -56,13 +67,44 @@ public class ManagementController {
 
 	// handling product submission
 	@PostMapping(value = "/products")
-	public String handleProductSubmission(@ModelAttribute("product") Product mProduct) {
+	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct,
+			BindingResult bindingResult, Model model, @RequestParam("file") MultipartFile file,
+			HttpServletRequest request) {
 
-		// create new Product record
+		// check if there are any error
 
-		productService.saveProduct(mProduct);
+		if (bindingResult.hasErrors()) {
+			model.addAttribute("userClickManageProducts", true);
+			model.addAttribute("title", "Manage Products");
+			model.addAttribute("message", "Validation failed for Product Submission!");
+			return "page";
+		}
 
-		return "redirect:/manage/products?operation=product";
+		if (file.isEmpty()) {
+			model.addAttribute("userClickManageProducts", true);
+			model.addAttribute("title", "Manage Products");
+			model.addAttribute("message", "Please select a file to upload");
+			return "page";
+		}
+
+		try {
+
+			// Get the file and save it somewhere
+			byte[] bytes = file.getBytes();
+			String p = request.getSession().getServletContext().getRealPath("/static/images/");
+			System.out.println(p);
+			Path path = Paths.get(p + mProduct.getCode() + ".jpg");
+			Files.write(path, bytes);
+			productService.saveProduct(mProduct);
+			return "redirect:/manage/products?operation=product";
+		} catch (IOException e) {
+			e.printStackTrace();
+			model.addAttribute("userClickManageProducts", true);
+			model.addAttribute("title", "Manage Products");
+			model.addAttribute("message", e.getMessage());
+			return "page";
+		}
+
 	}
 
 }
