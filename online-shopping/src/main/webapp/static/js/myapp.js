@@ -210,7 +210,7 @@ $(function() {
 								bSortable : false,
 								mRender : function(data, type, row) {
 									var str = '';
-									str += '<a href="${contextRoot }/manage/'
+									str += '<a href="'+window.contextRoot+'/manage/'
 											+ data
 											+ '/product" class="btn btn-warning">';
 									str += '<span class="glyphicon glyphicon-pencil"></span></a>';
