@@ -15,14 +15,17 @@
 </script>
 <!-- Bootstrap core CSS -->
 
-<link href="${contextRoot }/static/css/bootstrap.min.css" rel="stylesheet">
+<link href="${contextRoot }/static/css/bootstrap.min.css"
+	rel="stylesheet">
 
 <!-- Bootstrap Readable Theme -->
-<link href="${contextRoot }/static/css/bootstrap-readable-theme.css" rel="stylesheet">
+<link href="${contextRoot }/static/css/bootstrap-readable-theme.css"
+	rel="stylesheet">
 
 
 <!-- Bootstrap DataTables -->
-<link href="${contextRoot }/static/css/dataTables.bootstrap.css" rel="stylesheet">
+<link href="${contextRoot }/static/css/dataTables.bootstrap.css"
+	rel="stylesheet">
 
 
 <!-- Custom CSS -->
@@ -58,20 +61,18 @@
 				test="${userClickAllProducts == true or  userClickCategoryProducts == true}">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
-			
-			
+
+
 			<!-- Load only when user clicks show Products -->
-			<c:if
-				test="${userClickShowProduct == true }">
+			<c:if test="${userClickShowProduct == true }">
 				<%@include file="singleProduct.jsp"%>
 			</c:if>
-			
+
 			<!-- Load only when user clicks show Products -->
-			<c:if
-				test="${userClickManageProducts == true }">
+			<c:if test="${userClickManageProducts == true }">
 				<%@include file="manageProduct.jsp"%>
 			</c:if>
-			
+
 
 		</div>
 
@@ -93,7 +94,8 @@
 		<!-- DataTable Bootstrap Script -->
 		<script src="${contextRoot }/static/js/dataTables.bootstrap.js"></script>
 
-
+		<!-- Boot Box  Script -->
+		<script src="${contextRoot }/static/js/bootbox.min.js"></script>
 
 		<!-- Self coded javascript -->
 		<script src="${contextRoot }/static/js/myapp.js"></script>

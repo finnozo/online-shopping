@@ -1,15 +1,9 @@
-/*!
- * Start Bootstrap - Shop Homepage (http://startbootstrap.com/)
- * Copyright 2013-2016 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
- */
 html {
 	height: 100%;
 }
 
 body {
 	padding-top: 70px;
-	/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 	height: 100%;
 }
 
@@ -89,14 +83,19 @@ footer {
 	color: #FF0000;
 }
 
+.adminDataTableImg {
+	height: 50px;
+	width: 50px;
+}
+
 /*Toggle Switch code*/
 
 /* The switch - the box around the slider */
 .switch {
+	width: 50px;
+	height: 30px;
 	position: relative;
 	display: inline-block;
-	width: 60px;
-	height: 34px;
 }
 
 /* Hide default HTML checkbox */
@@ -113,24 +112,24 @@ footer {
 	right: 0;
 	bottom: 0;
 	background-color: #ccc;
-	-webkit-transition: .4s;
-	transition: .4s;
+	border-radius: 30px;
+	transition:.5s;
 }
 
 .slider:before {
 	position: absolute;
 	content: "";
-	height: 26px;
-	width: 26px;
-	left: 4px;
-	bottom: 4px;
-	background-color: white;
-	-webkit-transition: .4s;
-	transition: .4s;
+	height: 20px;
+	width: 20px;
+	left: 5px;
+	bottom: 5px;
+	background-color: #fff;
+	border-radius:50%;
+	transition: .5s;
 }
 
-input:checked+.slider {
-	background-color: #2196F3;
+input:checked +.slider {
+	background-color: #1863E6;
 }
 
 input:focus+.slider {
@@ -138,12 +137,10 @@ input:focus+.slider {
 }
 
 input:checked+.slider:before {
-	-webkit-transform: translateX(26px);
-	-ms-transform: translateX(26px);
-	transform: translateX(26px);
+	transform: translateX(20px);
 }
-
-/* Rounded sliders */
+/* 
+Rounded sliders
 .slider.round {
 	border-radius: 34px;
 }
@@ -152,12 +149,12 @@ input:checked+.slider:before {
 	border-radius: 50%;
 }
 
-/* overridden css */
+ *//* /* overridden css
 .help-block {
 	color: #ff0000;
 }
 
-/*Shopping Cart*/
+Shopping Cart
 .table>tbody>tr>td, .table>tfoot>tr>td {
 	vertical-align: middle;
 }
@@ -203,7 +200,7 @@ input:checked+.slider:before {
 	}
 }
 
-/* cart checkout */
+cart checkout
 .panel-title {
 	display: inline;
 	font-weight: bold;
@@ -217,7 +214,7 @@ input:checked+.slider:before {
 	padding-left: 0px;
 }
 
-/* order receipt */
+order receipt
 .invoice-title h2, .invoice-title h3 {
 	display: inline-block;
 }
@@ -234,7 +231,7 @@ input:checked+.slider:before {
 	border-top: 2px solid;
 }
 
-/* landing css */
+landing css
 .landingImg {
 	width: auto;
 	height: 180px;
@@ -248,4 +245,4 @@ input:checked+.slider:before {
 	height: 100%;
 	z-index: 9999;
 	background: url(../images/pre-loader.gif) 50% no-repeat #fff
-}
+} */

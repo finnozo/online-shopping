@@ -9,6 +9,8 @@ public interface ProductService {
 	String saveProduct(Product product);
 
 	List<Product> findAllProducts();
+	
+	List<Product> findAllProductsForAdmin();
 
 	Product findProductById(Integer id);
 
@@ -17,5 +19,8 @@ public interface ProductService {
 	String updateProduct(Product product);
 
 	List<Product> findProductByCategoryId(Integer categoryId);
+
+	Product findProductByIdForAdmin(int id);
+	
 
 }

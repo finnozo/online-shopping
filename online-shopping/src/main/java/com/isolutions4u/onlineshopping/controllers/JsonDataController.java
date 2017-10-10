@@ -20,14 +20,21 @@ public class JsonDataController {
 	@Qualifier("productService")
 	private ProductService productService;
 
-	@GetMapping("all/products")
+	@GetMapping("/all/products")
 	public List<Product> getAllProducts() {
 		List<Product> products = productService.findAllProducts();
 		return products;
 
 	}
+	
+	@GetMapping("/admin/all/products")
+	public List<Product> getAllProductsForAdmin() {
+		List<Product> products = productService.findAllProductsForAdmin();
+		return products;
 
-	@GetMapping("category/{categoryId}/products")
+	}
+
+	@GetMapping("/category/{categoryId}/products")
 	public List<Product> getProductsByCategory(@PathVariable("categoryId") int categoryId) {
 		List<Product> products = productService.findProductByCategoryId(categoryId);
 		return products;

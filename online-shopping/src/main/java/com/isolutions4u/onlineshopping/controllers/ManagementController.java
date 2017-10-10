@@ -11,15 +11,19 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.isolutions4u.onlineshopping.model.Category;
 import com.isolutions4u.onlineshopping.model.Product;
 import com.isolutions4u.onlineshopping.service.CategoryService;
 import com.isolutions4u.onlineshopping.service.ProductService;
+import com.isolutions4u.onlineshopping.validator.ProductValidator;
+
 import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 
@@ -73,17 +77,12 @@ public class ManagementController {
 
 		// check if there are any error
 
+		new ProductValidator().validate(mProduct, bindingResult);
+
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("userClickManageProducts", true);
 			model.addAttribute("title", "Manage Products");
 			model.addAttribute("message", "Validation failed for Product Submission!");
-			return "page";
-		}
-
-		if (file.isEmpty()) {
-			model.addAttribute("userClickManageProducts", true);
-			model.addAttribute("title", "Manage Products");
-			model.addAttribute("message", "Please select a file to upload");
 			return "page";
 		}
 
@@ -105,6 +104,23 @@ public class ManagementController {
 			return "page";
 		}
 
+	}
+
+	// Activating Deactivating Products
+
+	@PostMapping("/product/{id}/activation")
+	@ResponseBody
+	public String handleProductActivation(@PathVariable("id") int id) {
+
+		Product product = productService.findProductByIdForAdmin(id);
+		boolean isActive = product.isActive();
+
+		product.setActive(!isActive);
+
+		productService.updateProduct(product);
+
+		return (isActive) ? "You have Successfully deactivated the Product with Id : " + product.getId()
+				: "You have Successfully activated the Product with Id : " + product.getId();
 	}
 
 }

@@ -58,7 +58,7 @@
 			</c:choose>
 
 
-			<a href="/show/all/product" class="btn btn-primary">Back</a>
+			<a href="/show/all/products" class="btn btn-primary">Back</a>
 
 		</div>
 	</div>
