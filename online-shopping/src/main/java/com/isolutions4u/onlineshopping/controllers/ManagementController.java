@@ -45,7 +45,7 @@ public class ManagementController {
 	private ProductService productService;
 
 	@GetMapping(value = "/products")
-	public ModelAndView showMangeProducts(@RequestParam(name = "operation", required = false) String operation) {
+	public ModelAndView showManageProducts(@RequestParam(name = "operation", required = false) String operation) {
 
 		ModelAndView modelAndView = new ModelAndView("page");
 
@@ -77,33 +77,67 @@ public class ManagementController {
 
 		// check if there are any error
 
-		new ProductValidator().validate(mProduct, bindingResult);
+		if (mProduct.getId() == 0) {
 
-		if (bindingResult.hasErrors()) {
-			model.addAttribute("userClickManageProducts", true);
-			model.addAttribute("title", "Manage Products");
-			model.addAttribute("message", "Validation failed for Product Submission!");
-			return "page";
+			new ProductValidator().validate(mProduct, bindingResult);
+
+			if (bindingResult.hasErrors()) {
+				model.addAttribute("userClickManageProducts", true);
+				model.addAttribute("title", "Manage Products");
+				model.addAttribute("message", "Validation failed for Product Submission!");
+				return "page";
+			}
+
+			try {
+
+				// Get the file and save it somewhere
+				fileSaveInFolder(mProduct, file, request);
+				productService.saveProduct(mProduct);
+				return "redirect:/manage/products?operation=product";
+			} catch (IOException e) {
+				e.printStackTrace();
+				model.addAttribute("userClickManageProducts", true);
+				model.addAttribute("title", "Manage Products");
+				model.addAttribute("message", e.getMessage());
+				return "page";
+			}
+		} else {
+			if (!mProduct.getFile().getOriginalFilename().equals("")) {
+				new ProductValidator().validate(mProduct, bindingResult);
+				if (bindingResult.hasErrors()) {
+					model.addAttribute("userClickManageProducts", true);
+					model.addAttribute("title", "Manage Products");
+					model.addAttribute("message", "Validation failed for Product Submission!");
+					return "page";
+				}
+				
+				try {
+					
+					fileSaveInFolder(mProduct, file, request);
+					productService.updateProduct(mProduct);
+					return "redirect:/manage/products?operation=updated";
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					model.addAttribute("userClickManageProducts", true);
+					model.addAttribute("title", "Manage Products");
+					model.addAttribute("message", e.getMessage());
+					return "page";
+				}
+
+			} else {
+				productService.updateProduct(mProduct);
+				return "redirect:/manage/products?operation=updated";
+			}
 		}
+	}
 
-		try {
-
-			// Get the file and save it somewhere
-			byte[] bytes = file.getBytes();
-			String p = request.getSession().getServletContext().getRealPath("/static/images/");
-			System.out.println(p);
-			Path path = Paths.get(p + mProduct.getCode() + ".jpg");
-			Files.write(path, bytes);
-			productService.saveProduct(mProduct);
-			return "redirect:/manage/products?operation=product";
-		} catch (IOException e) {
-			e.printStackTrace();
-			model.addAttribute("userClickManageProducts", true);
-			model.addAttribute("title", "Manage Products");
-			model.addAttribute("message", e.getMessage());
-			return "page";
-		}
-
+	private void fileSaveInFolder(Product mProduct, MultipartFile file, HttpServletRequest request) throws IOException {
+		byte[] bytes = file.getBytes();
+		String p = request.getSession().getServletContext().getRealPath("/static/images/");
+		System.out.println(p);
+		Path path = Paths.get(p + mProduct.getCode() + ".jpg");
+		Files.write(path, bytes);
 	}
 
 	// Activating Deactivating Products
@@ -121,6 +155,23 @@ public class ManagementController {
 
 		return (isActive) ? "You have Successfully deactivated the Product with Id : " + product.getId()
 				: "You have Successfully activated the Product with Id : " + product.getId();
+	}
+
+	@GetMapping("{id}/product")
+	public ModelAndView showEditProducts(@PathVariable("id") int id) {
+
+		ModelAndView modelAndView = new ModelAndView("page");
+
+		modelAndView.addObject("userClickManageProducts", true);
+		modelAndView.addObject("title", "Manage Products");
+
+		// Fetching the product form database
+
+		Product nProduct = productService.findProductByIdForAdmin(id);
+
+		modelAndView.addObject("product", nProduct);
+
+		return modelAndView;
 	}
 
 }
