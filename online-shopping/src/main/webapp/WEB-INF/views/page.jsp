@@ -84,6 +84,8 @@
 		<!-- jQuery -->
 		<script src="${contextRoot }/static/js/jquery.js"></script>
 
+		<!-- jQuery validator -->
+		<script src="${contextRoot }/static/js/jquery.validate.js"></script>
 
 		<!-- Bootstrap Core JavaScript -->
 		<script src="${contextRoot }/static/js/bootstrap.min.js"></script>

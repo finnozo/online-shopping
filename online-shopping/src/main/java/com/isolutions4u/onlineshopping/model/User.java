@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_detail")
-public class UserDetail {
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,18 +22,20 @@ public class UserDetail {
 	@Column(name = "last_name")
 	private String lastName;
 
-	@Column(name = "enabled")
-	private boolean enabled;
-
 	@Column(name = "email")
 	private String email;
 
 	@Column(name = "contact_number")
 	private String contactNumber;
 
-	public UserDetail() {
-		// TODO Auto-generated constructor stub
-	}
+	@Column(name = "role")
+	private String role;
+
+	@Column(name = "password")
+	private String password;
+
+	@Column(name = "enabled")
+	private boolean enabled = true;
 
 	public int getId() {
 		return id;
@@ -59,14 +61,6 @@ public class UserDetail {
 		this.lastName = lastName;
 	}
 
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -83,10 +77,35 @@ public class UserDetail {
 		this.contactNumber = contactNumber;
 	}
 
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
 	@Override
 	public String toString() {
-		return "UserDetail [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", enabled=" + enabled
-				+ ", email=" + email + ", contactNumber=" + contactNumber + "]";
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", contactNumber=" + contactNumber + ", role=" + role + ", password=" + password + ", enabled="
+				+ enabled + "]";
 	}
 
 }

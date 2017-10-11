@@ -210,7 +210,9 @@ $(function() {
 								bSortable : false,
 								mRender : function(data, type, row) {
 									var str = '';
-									str += '<a href="'+window.contextRoot+'/manage/'
+									str += '<a href="'
+											+ window.contextRoot
+											+ '/manage/'
 											+ data
 											+ '/product" class="btn btn-warning">';
 									str += '<span class="glyphicon glyphicon-pencil"></span></a>';
@@ -274,4 +276,40 @@ $(function() {
 				});
 	}
 
+	// --------------------------------------------------
+	// validation code for category
+
+	var $categoryForm = $('#categoryForm');
+
+	if ($categoryForm.length) {
+		$categoryForm
+				.validate({
+					rules : {
+						name : {
+							required : true,
+							minlength : 2
+						},
+						description : {
+							required : true
+						}
+					},
+					massage : {
+						name : {
+							required : 'Please Add the category name!',
+							minlength : 'The category name should not be less than 2 characters'
+						},
+						description : {
+							required : 'Please add a description for this category'
+						}
+					},
+					errorElement : 'em',
+					errorPlacement : function(error, element) {
+						// add the class of help-block
+						error.addClass('help-block');
+						error.insertAfter(element);
+					}
+				});
+	}
+	// ---------------------------------------------------------
+	// end
 });
