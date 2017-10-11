@@ -19,5 +19,11 @@ public class CartServiceImpl implements CartService {
 		cartRepository.saveAndFlush(cart);
 		return true;
 	}
+	@Override
+	public boolean updateCart(Cart cart) {
+		// TODO Auto-generated method stub
+		cartRepository.saveAndFlush(cart);
+		return true;
+	}
 
 }

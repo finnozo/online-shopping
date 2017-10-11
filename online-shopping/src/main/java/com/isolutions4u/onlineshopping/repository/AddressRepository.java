@@ -7,5 +7,7 @@ import com.isolutions4u.onlineshopping.model.Address;
 
 @Repository("addressRepository")
 public interface AddressRepository extends JpaRepository<Address, Integer> {
+	
+	Address findAddressByBilling(boolean billing);
 
 }

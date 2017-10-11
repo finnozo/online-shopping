@@ -21,4 +21,10 @@ public class AddressServiceImpl implements AddressService {
 		return true;
 	}
 
+	@Override
+	public Address findAddressByBilling(boolean billing) {
+		// TODO Auto-generated method stub
+		return addressRepository.findAddressByBilling(billing);
+	}
+
 }

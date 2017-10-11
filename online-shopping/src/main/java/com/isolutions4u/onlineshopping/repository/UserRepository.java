@@ -7,5 +7,7 @@ import com.isolutions4u.onlineshopping.model.User;
 
 @Repository("userRepository")
 public interface UserRepository extends JpaRepository<User, Integer> {
+	
+	User findUserByEmail(String email);
 
 }
