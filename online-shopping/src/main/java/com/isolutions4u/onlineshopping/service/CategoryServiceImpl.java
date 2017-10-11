@@ -20,7 +20,7 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public String saveCategory(Category category) {
 		// TODO Auto-generated method stub
-
+		category.setActive(true);
 		categoryRepository.saveAndFlush(category);
 		return "Save Sucessfully";
 	}
@@ -30,13 +30,16 @@ public class CategoryServiceImpl implements CategoryService {
 		// TODO Auto-generated method stub
 
 		List<Category> categories = new ArrayList<>();
+		List<Category> categoriesCopy = new ArrayList<>();
 		categoryRepository.findAll().forEach(categories::add);
+		categoriesCopy.addAll(categories);
 		for (Category c : categories) {
+			System.out.println(c);
 			if (!c.isActive()) {
-				categories.remove(c);
+				categoriesCopy.remove(c);
 			}
 		}
-		return categories;
+		return categoriesCopy;
 
 	}
 

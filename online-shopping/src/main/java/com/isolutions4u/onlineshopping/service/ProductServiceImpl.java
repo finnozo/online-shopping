@@ -77,8 +77,8 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		List<Product> products = new ArrayList<>();
 		List<Product> productsCopy = new ArrayList<>();
-		productsCopy.addAll(products);
 		productRepository.findProductByCategoryId(categoryId).forEach(products::add);
+		productsCopy.addAll(products);
 		for (Product p : products) {
 			if (!p.isActive()) {
 				productsCopy.remove(p);

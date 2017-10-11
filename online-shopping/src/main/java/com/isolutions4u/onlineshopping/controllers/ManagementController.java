@@ -59,14 +59,14 @@ public class ManagementController {
 		if (operation != null && operation.equals("product")) {
 			modelAndView.addObject("message", "Product Added Sucessfully!");
 		}
+		else if (operation != null && operation.equals("category")) {
+			modelAndView.addObject("message", "Category Added Sucessfully!");
+		}
+		else if (operation != null && operation.equals("updated")) {
+			modelAndView.addObject("message", "Product Updated Sucessfully!");
+		}
 
 		return modelAndView;
-	}
-
-	@ModelAttribute("categories")
-	public List<Category> getCategories() {
-		List<Category> categories = categoryService.findAllCategories();
-		return categories;
 	}
 
 	// handling product submission
@@ -110,9 +110,9 @@ public class ManagementController {
 					model.addAttribute("message", "Validation failed for Product Submission!");
 					return "page";
 				}
-				
+
 				try {
-					
+
 					fileSaveInFolder(mProduct, file, request);
 					productService.updateProduct(mProduct);
 					return "redirect:/manage/products?operation=updated";
@@ -172,6 +172,25 @@ public class ManagementController {
 		modelAndView.addObject("product", nProduct);
 
 		return modelAndView;
+	}
+
+	@PostMapping("/category")
+	public String handleCategorySubmission(@ModelAttribute("category") Category category) {
+
+		categoryService.saveCategory(category);
+
+		return "redirect:/manage/products?operation=category";
+	}
+
+	@ModelAttribute("categories")
+	public List<Category> getCategories() {
+		List<Category> categories = categoryService.findAllCategories();
+		return categories;
+	}
+
+	@ModelAttribute("category")
+	public Category getCategory() {
+		return new Category();
 	}
 
 }

@@ -74,7 +74,6 @@ public class IndexController {
 	public ModelAndView showCategoryProducts(@PathVariable("id") int id) {
 		ModelAndView modelAndView = new ModelAndView("page");
 
-		// categoryDAO to fetch a single category
 
 		Category category = null;
 		category = categoryService.findCategoryById(id);
