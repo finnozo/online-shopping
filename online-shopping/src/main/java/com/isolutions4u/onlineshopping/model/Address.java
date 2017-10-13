@@ -10,15 +10,17 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Table(name = "address")
-public class Address implements Serializable{
+public class Address implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -29,21 +31,27 @@ public class Address implements Serializable{
 	private User user;
 	/*----------------------*/
 	@Column(name = "address_line_one")
+	@NotBlank(message = "Please Enter Address Line One!")
 	private String addressLineOne;
 
 	@Column(name = "address_line_two")
+	@NotBlank(message = "Please Enter Address Line Two!")
 	private String addressLineTwo;
 
 	@Column(name = "city")
+	@NotBlank(message = "Please Enter City!")
 	private String city;
 
 	@Column(name = "state")
+	@NotBlank(message = "Please Enter City!")
 	private String state;
 
 	@Column(name = "country")
+	@NotBlank(message = "Please Enter Country!")
 	private String country;
 
 	@Column(name = "postal_code")
+	@NotBlank(message = "Please Enter Postal Code!")
 	private String postalCode;
 
 	@Column(name = "shipping")

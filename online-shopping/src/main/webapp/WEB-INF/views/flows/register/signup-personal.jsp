@@ -12,52 +12,62 @@
 					<sf:form method="POST" class="form-horizontal" id="registerForm"
 						modelAttribute="user">
 						<div class="form-group">
-							<label class="control-label col-md-4">First Name</label>
+							<label class="control-label col-md-4" for="firstName">First
+								Name</label>
 							<div class="col-md-8">
 								<sf:input path="firstName" type="text" class="form-control"
 									placeholder="First Name" />
+								<sf:errors path="firstName" cssClass="help-block" element="em" />
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-md-4">Last Name</label>
+							<label class="control-label col-md-4" for="lastName">Last
+								Name</label>
 							<div class="col-md-8">
 								<sf:input path="lastName" type="text" class="form-control"
 									placeholder="Last Name" />
+								<sf:errors path="lastName" cssClass="help-block" element="em" />
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-md-4">Email</label>
+							<label class="control-label col-md-4" for="email">Email</label>
 							<div class="col-md-8">
 								<sf:input path="email" type="email" class="form-control"
 									placeholder="abc@xyz.com" />
+								<sf:errors path="email" cssClass="help-block" element="em" />
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-md-4">Contact Number</label>
+							<label class="control-label col-md-4" for="contactNumber">Contact
+								Number</label>
 							<div class="col-md-8">
 								<sf:input path="contactNumber" type="number" maxlength="10"
 									class="form-control" placeholder="XXXXXXXXXX" />
+								<sf:errors path="contactNumber" cssClass="help-block"
+									element="em" />
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-md-4">Password</label>
+							<label class="control-label col-md-4" for="password">Password</label>
 							<div class="col-md-8">
 								<sf:input path="password" type="password" class="form-control"
 									placeholder="Password" />
+								<sf:errors path="password" cssClass="help-block" element="em" />
 							</div>
 						</div>
 
 						<!-- radio button using bootstrap class of radio-inline -->
 
 						<div class="form-group">
-							<label class="control-label col-md-4">Select Role</label>
+							<label class="control-label col-md-4" for="role">Select
+								Role</label>
 							<div class="col-md-8">
-								<label class="radio-inline"> <sf:radiobutton path="role"
-										value="USER" checked="checked" /> User
+								<label class="radio-inline"> <sf:radiobutton
+										path="role" value="USER" checked="checked" /> User
 								</label> <label class="radio-inline"> <sf:radiobutton
 										path="role" value="SUPPLIER" /> Supplier
 								</label>
