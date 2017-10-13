@@ -4,16 +4,33 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow
                           http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
+	<var name="user" class="com.isolutions4u.onlineshopping.model.User" />
+	<var name="billing" class="com.isolutions4u.onlineshopping.model.Address" />
+
 	<!-- is the start state -->
-	<view-state id="persion" view="flows/register/signup-personal"></view-state>
-	
+	<view-state id="personal" view="flows/register/signup-personal"
+		model="user">
+		<transition on="billing" to="billing" />
+	</view-state>
+	<view-state id="billing" view="flows/register/signup-billing"
+		model="billing">
+		<transition on="personal" to="personal" />
+		<transition on="confirm" to="confirm" />
+	</view-state>
+	<view-state id="confirm" view="flows/register/signup-confirm">
+		<transition on="personal" to="personal" />
+		<transition on="billing" to="billing" />
+		<transition on="success" to="success" />
+	</view-state>
+
 	<!-- End State -->
-	
-	<end-state id="home" view="externalRedirect:contextRelative:/"/>
+
+	<end-state id="home" view="externalRedirect:contextRelative:/" />
+	<end-state id="success" view="flows/register/signup-success" />
 
 	<!-- Global Transition -->
 	<global-transitions>
-		<transition on="home" to="home"/>
+		<transition on="home" to="home" />
 	</global-transitions>
 
 </flow>
