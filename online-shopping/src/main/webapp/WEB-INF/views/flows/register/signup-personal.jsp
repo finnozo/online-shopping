@@ -60,14 +60,25 @@
 							</div>
 						</div>
 
+						<div class="form-group">
+							<label class="control-label col-md-4" for="confirmPassword">Confirm
+								Password</label>
+							<div class="col-md-8">
+								<sf:input path="confirmPassword" type="password"
+									class="form-control" placeholder="Re-Enter Password" />
+								<sf:errors path="confirmPassword" cssClass="help-block"
+									element="em" />
+							</div>
+						</div>
+
 						<!-- radio button using bootstrap class of radio-inline -->
 
 						<div class="form-group">
 							<label class="control-label col-md-4" for="role">Select
 								Role</label>
 							<div class="col-md-8">
-								<label class="radio-inline"> <sf:radiobutton
-										path="role" value="USER" checked="checked" /> User
+								<label class="radio-inline"> <sf:radiobutton path="role"
+										value="USER" checked="checked" /> User
 								</label> <label class="radio-inline"> <sf:radiobutton
 										path="role" value="SUPPLIER" /> Supplier
 								</label>
