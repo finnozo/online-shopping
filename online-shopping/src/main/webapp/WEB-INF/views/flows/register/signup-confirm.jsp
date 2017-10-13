@@ -11,6 +11,14 @@
 				</div>
 				<div class="panel-body">
 					<!-- code to display the personal details -->
+					
+					<div class="text-center">
+						<h4>Name           : ${registerModel.user.firstName } ${registerModel.user.firstName }</h4>
+						<h5>Email          : ${registerModel.user.email }</h5>
+						<h5>Contact Number : ${registerModel.user.contactNumber }</h5>
+						<h5>Role           : ${registerModel.user.role }</h5>
+					</div>
+					
 				</div>
 				<div class="panel-footer">
 					<!-- anchor to move to the edit of personal details -->
@@ -32,6 +40,14 @@
 				</div>
 				<div class="panel-body">
 					<!-- code to display the personal details -->
+					
+					<div class="text-center">
+						<h4>${registerModel.billing.addressLineOne }</h4>
+						<h4>${registerModel.billing.addressLineTwo }</h4>
+						<h4>${registerModel.billing.city }-${registerModel.billing.postalCode }</h4>
+						<h4>${registerModel.billing.state }-${registerModel.billing.country }</h4>
+					</div>
+					
 				</div>
 				<div class="panel-footer">
 					<a href="${flowExecutionUrl }&_eventId_billing"
@@ -47,7 +63,7 @@
 	<div class="row">
 		<div class="col-sm-4 col-sm-offset-4">
 			<div class="text-center">
-				<a href="${flowExecutionUrl }&_eventId_success"
+				<a href="${flowExecutionUrl }&_eventId_submit"
 					class="btn btn-primary">Confirm</a>
 
 			</div>

@@ -1,7 +1,15 @@
 package com.isolutions4u.onlineshopping.model;
 
-public class RegisterModel {
+import java.io.Serializable;
 
+public class RegisterModel implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
 	private User user;
 	private Address billing;
 

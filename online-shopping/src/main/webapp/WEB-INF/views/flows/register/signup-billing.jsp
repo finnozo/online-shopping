@@ -65,12 +65,12 @@
 								<!-- submit button inside the form -->
 								<button type="submit" class="btn btn-primary"
 									name="_eventId_personal">
-									<span class="glyphicon glyphicon-chevron-left"></span>Previous - Personal 
+									<span class="glyphicon glyphicon-chevron-left"></span>Previous 
 								</button>
 								
 								<button type="submit" class="btn btn-primary"
 									name="_eventId_confirm">
-									Next - Confirm <span class="glyphicon glyphicon-chevron-right"></span>
+									Next<span class="glyphicon glyphicon-chevron-right"></span>
 								</button>
 
 							</div>
