@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,6 +19,8 @@ import javax.sql.DataSource;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	
+	 	@Autowired
+	    private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	    @Autowired
 	    private DataSource dataSource;
@@ -35,7 +38,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	                jdbcAuthentication()
 	                .usersByUsernameQuery(usersQuery)
 	                .authoritiesByUsernameQuery(rolesQuery)
-	                .dataSource(dataSource);
+	                .dataSource(dataSource)
+	                .passwordEncoder(bCryptPasswordEncoder);;
 	    }
 	
 	
@@ -45,8 +49,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.
                 authorizeRequests()
-                .antMatchers("/login").permitAll()
-                .antMatchers("/manage/**").hasAuthority("SUPPLIER")
+                .antMatchers("/manage/**").hasAuthority("ADMIN")
+                .antMatchers("/cart/**").hasAuthority("USER")
+                .antMatchers("/**").permitAll()
                 .anyRequest()
                 .authenticated().and().formLogin()
                 .loginPage("/login")
@@ -54,9 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/")
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .and().logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/").and().exceptionHandling()
+                .and().exceptionHandling()
                 .accessDeniedPage("/access-denied");
 	}
 

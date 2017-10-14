@@ -15,7 +15,8 @@
 		<!-- Display the product image -->
 		<div class="col-xs-12 col-sm-4">
 			<div class="thumbnail">
-				<img src="${contextRoot }/static/images/${product.code}.jpg" class="img img-responsive" />
+				<img src="${contextRoot }/static/images/${product.code}.jpg"
+					class="img img-responsive" />
 			</div>
 		</div>
 
@@ -44,19 +45,27 @@
 
 			</c:choose>
 
-			<c:choose>
-				<c:when test="${product.quantity < 1 }">
-					<a href="javascript:void(0);" class="btn btn-success disabled"><strike><span
-							class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</strike></a>
-				</c:when>
-				<c:otherwise>
-					<a href="/cart/add/${product.id }/product" class="btn btn-success"><span
-						class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a>
+			<security:authorize access="hasAuthority('USER')">
+				<c:choose>
+					<c:when test="${product.quantity < 1 }">
+						<a href="javascript:void(0);" class="btn btn-success disabled"><strike><span
+								class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</strike></a>
+					</c:when>
+					<c:otherwise>
+						<a href="${contextRoot }/cart/add/${product.id }/product" class="btn btn-success"><span
+							class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a>
 
-				</c:otherwise>
+					</c:otherwise>
 
-			</c:choose>
-
+				</c:choose>
+			</security:authorize>
+			
+			<security:authorize access="hasAuthority('ADMIN')">
+			
+			<a href="${contextRoot }/manage/${product.id }/product" class="btn btn-warning"><span
+							class="glyphicon glyphicon-pencil"></span> Edit</a>
+			
+			</security:authorize>
 
 			<a href="/show/all/products" class="btn btn-primary">Back</a>
 

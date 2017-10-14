@@ -2,10 +2,11 @@
 
 	<div class="row">
 
-	<div class="col-md-3">
-		<!-- Categories -->
-		<%@include file="share/sidebar.jsp" %>
-</div>
+		<div class="col-md-3">
+			<%@include file="./share/sidebar.jsp"%>
+		</div>
+
+		<div class="col-md-9">
 
 			<div class="row carousel-holder">
 
@@ -19,178 +20,22 @@
 							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
 							<li data-target="#carousel-example-generic" data-slide-to="3"></li>
 						</ol>
-				<div class="carousel-inner">
-							
-							<div class="item active">
-						<img class="d-block img-fluid" src="http://placehold.it/900x350"
-							alt="First slide">
-					</div>
-					<div class="item">
-						<img class="d-block img-fluid" src="http://placehold.it/900x350"
-							alt="Second slide">
-					</div>
-					<div class="item">
-						<img class="d-block img-fluid" src="http://placehold.it/900x350"
-							alt="Third slide">
-					</div>
-				</div>
-				<a class="carousel-control-prev" href="#carouselExampleIndicators"
-					role="button" data-slide="prev"> <span
-					class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-					class="sr-only">Previous</span>
-				</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
-					role="button" data-slide="next"> <span
-					class="carousel-control-next-icon" aria-hidden="true"></span> <span
-					class="sr-only">Next</span>
-				</a>
-			</div>
-
-			<div class="row">
-
-				<div class="col-lg-4 col-md-6 mb-4">
-					<div class="card h-100">
-						<a href="#"><img class="card-img-top"
-							src="http://placehold.it/700x400" alt=""></a>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">Item One</a>
-							</h4>
-							<h5>$24.99</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Amet numquam aspernatur!</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">&#9733; &#9733; &#9733; &#9733;
-								&#9734;</small>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6 mb-4">
-					<div class="card h-100">
-						<a href="#"><img class="card-img-top"
-							src="http://placehold.it/700x400" alt=""></a>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">Item Two</a>
-							</h4>
-							<h5>$24.99</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit
-								amet.</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">&#9733; &#9733; &#9733; &#9733;
-								&#9734;</small>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6 mb-4">
-					<div class="card h-100">
-						<a href="#"><img class="card-img-top"
-							src="http://placehold.it/700x400" alt=""></a>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">Item Three</a>
-							</h4>
-							<h5>$24.99</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Amet numquam aspernatur!</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">&#9733; &#9733; &#9733; &#9733;
-								&#9734;</small>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6 mb-4">
-					<div class="card h-100">
-						<a href="#"><img class="card-img-top"
-							src="http://placehold.it/700x400" alt=""></a>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">Item Four</a>
-							</h4>
-							<h5>$24.99</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Amet numquam aspernatur!</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">&#9733; &#9733; &#9733; &#9733;
-								&#9734;</small>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6 mb-4">
-					<div class="card h-100">
-						<a href="#"><img class="card-img-top"
-							src="http://placehold.it/700x400" alt=""></a>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">Item Five</a>
-							</h4>
-							<h5>$24.99</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit
-								amet.</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">&#9733; &#9733; &#9733; &#9733;
-								&#9734;</small>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6 mb-4">
-					<div class="card h-100">
-						<a href="#"><img class="card-img-top"
-							src="http://placehold.it/700x400" alt=""></a>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">Item Six</a>
-							</h4>
-							<h5>$24.99</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Amet numquam aspernatur!</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">&#9733; &#9733; &#9733; &#9733;
-								&#9734;</small>
-						</div>
-					</div>
-				</div>
-
-			</div>
-			<!-- /.row -->
-
-		</div>
-		<!-- /.col-lg-9 -->
-
-	</div>
-	<!-- /.row -->
-
-</div>
-
-
 						<div class="carousel-inner">
 							
 							<div class="item active">
-								<img class="slide-image" src="${images}/banner1.jpg"
+								<img class="slide-image" src="${contextRoot }/static/images/banner1.jpg"
 									alt="">
 							</div>
 							<div class="item">
-								<img class="slide-image" src="${images}/banner2.jpg"
+								<img class="slide-image" src="${contextRoot }/static/images/banner2.jpg"
 									alt="">
 							</div>
 							<div class="item">
-								<img class="slide-image" src="${images}/banner3.jpg"
+								<img class="slide-image" src="${contextRoot }/static/images/banner3.jpg"
 									alt="">
 							</div>
 							<div class="item">
-								<img class="slide-image" src="${images}/banner4.jpg"
+								<img class="slide-image" src="${contextRoot }/static/images/banner4.jpg"
 									alt="">
 							</div>
 						</div>
@@ -215,15 +60,15 @@
 
                 <div class="row is-table-row">
                 	
-                    <div class="col-sm-4" ng-repeat="product in pCtrl.mvProducts">                    	
+                    <div class="col-sm-4" >                    	
                         <div class="thumbnail">
-                            <img ng-src="${images}/{{product.code}}.jpg" alt="{{product.name}}" class="landingImg">
+                            <img  class="landingImg">
                             <h5>{{product.name}}</h5>
                             <hr/>
                             <div class="caption">
-                                <h4 class="pull-right">&#8377; {{product.unitPrice}}</h4>
-                                <p>{{product.description}}</p>
-                                <a ng-href="${contextRoot}/show/{{product.id}}/product" class="btn btn-primary pull-right">View</a>
+                                <h4 class="pull-right">&#8377; </h4>
+                                <p></p>
+                                <a  class="btn btn-primary pull-right">View</a>
                             </div>
                         </div>
                         
@@ -245,15 +90,15 @@
                 </div>
                <div class="row is-table-row">
                 	
-                    <div class="col-sm-4" ng-repeat="product in pCtrl.mpProducts">                    	
+                    <div class="col-sm-4" >                    	
                         <div class="thumbnail">
-                            <img ng-src="${images}/{{product.code}}.jpg" alt="{{product.name}}" class="landingImg">
-                            <h5>{{product.name}}</h5>
+                            <img  alt="{{product.name}}" class="landingImg">
+                            <h5></h5>
                             <hr/>
                             <div class="caption">
-                                <h4 class="pull-right">&#8377; {{product.unitPrice}}</h4>
-                                <p>{{product.description}}</p>
-                                <a ng-href="${contextRoot}/show/{{product.id}}/product" class="btn btn-primary pull-right">View</a>
+                                <h4 class="pull-right">&#8377; </h4>
+                                <p></p>
+                                <a  class="btn btn-primary pull-right">View</a>
                             </div>
                         </div>
                     </div>
