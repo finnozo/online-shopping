@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.isolutions4u.onlineshopping.model.Category;
@@ -53,6 +54,23 @@ public class IndexController {
 	}
 
 	/*
+	 * Creating Custom Login Controller
+	 * 
+	 * 
+	 */
+
+	@GetMapping("/login")
+	public ModelAndView login(@RequestParam(name = "error", required = false) String error) {
+		ModelAndView modelAndView = new ModelAndView("login");
+		if (error != null) {
+			modelAndView.addObject("message", "Invalid User Name or Password");
+		}
+		modelAndView.addObject("title", "Login");
+
+		return modelAndView;
+	}
+
+	/*
 	 * Methods to load all the products and based on category
 	 * 
 	 */
@@ -73,7 +91,6 @@ public class IndexController {
 	@GetMapping("/show/category/{id}/products")
 	public ModelAndView showCategoryProducts(@PathVariable("id") int id) {
 		ModelAndView modelAndView = new ModelAndView("page");
-
 
 		Category category = null;
 		category = categoryService.findCategoryById(id);
