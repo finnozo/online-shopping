@@ -11,4 +11,7 @@ public interface CartLineService {
 	public boolean updateCartLine(CartLine cartLine);
 	public boolean deleteCartLine(CartLine cartLine);
 	public List<CartLine> findAllCartLine(int cartId);
+	
+	public List<CartLine> findCartLines();
+	
 }

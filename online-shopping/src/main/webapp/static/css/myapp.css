@@ -113,7 +113,7 @@ footer {
 	bottom: 0;
 	background-color: #ccc;
 	border-radius: 30px;
-	transition:.5s;
+	transition: .5s;
 }
 
 .slider:before {
@@ -124,11 +124,11 @@ footer {
 	left: 5px;
 	bottom: 5px;
 	background-color: #fff;
-	border-radius:50%;
+	border-radius: 50%;
 	transition: .5s;
 }
 
-input:checked +.slider {
+input:checked+.slider {
 	background-color: #1863E6;
 }
 
@@ -140,6 +140,61 @@ input:checked+.slider:before {
 	transform: translateX(20px);
 }
 
-.table-responsive{
-	overflow-x:inherit; 
+.table-responsive {
+	overflow-x: inherit;
+}
+
+/* Cart CSS */
+.table>tbody>tr>td, .table>tfoot>tr>td {
+	vertical-align: middle;
+}
+
+@media screen and (max-width: 600px) {
+	table#cart tbody td .form-control {
+		width: 20%;
+		display: inline !important;
+	}
+	.actions .btn {
+		width: 36%;
+		margin: 1.5em 0;
+	}
+	.actions .btn-info {
+		float: left;
+	}
+	.actions .btn-danger {
+		float: right;
+	}
+	table#cart thead {
+		display: none;
+	}
+	table#cart tbody td {
+		display: block;
+		padding: .6rem;
+		min-width: 320px;
+	}
+	table#cart tbody tr td:first-child {
+		background: #333;
+		color: #fff;
+	}
+	table#cart tbody td:before {
+		content: attr(data-th);
+		font-weight: bold;
+		display: inline-block;
+		width: 8rem;
+	}
+	table#cart tfoot td {
+		display: block;
+	}
+	table#cart tfoot td .btn {
+		display: block;
+	}
+}
+
+.cartImg {
+	width: 100px;
+	height: 100px;
+}
+
+.unavailable {
+	color: red;
 }

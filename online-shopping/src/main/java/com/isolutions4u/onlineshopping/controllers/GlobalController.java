@@ -13,10 +13,10 @@ import com.isolutions4u.onlineshopping.model.UserModel;
 import com.isolutions4u.onlineshopping.service.UserService;
 
 @ControllerAdvice
-public class GlobalControll {
+public class GlobalController {
 
 	@Autowired
-	private HttpSession httpSesson;
+	private HttpSession httpSession;
 
 	@Autowired
 	private UserService userService;
@@ -26,7 +26,7 @@ public class GlobalControll {
 	@ModelAttribute("userModel")
 	public UserModel getUserModel() {
 
-		if (httpSesson.getAttribute("userModel") == null) {
+		if (httpSession.getAttribute("userModel") == null) {
 			// add the user model
 
 			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -43,12 +43,12 @@ public class GlobalControll {
 
 					userModel.setCart(user.getCart());
 				}
-				httpSesson.setAttribute("userModel", userModel);
+				httpSession.setAttribute("userModel", userModel);
 			}
 
 		}
 
-		return (UserModel) httpSesson.getAttribute("userModel");
+		return (UserModel) httpSession.getAttribute("userModel");
 	}
 
 }
