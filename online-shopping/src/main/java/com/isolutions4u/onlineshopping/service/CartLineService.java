@@ -14,4 +14,6 @@ public interface CartLineService {
 	
 	public List<CartLine> findCartLines();
 	
+	CartLine findCartLineByCartIdAndProductId(int cartId,int id);
+	
 }

@@ -57,4 +57,10 @@ public class CartLineServiceImpl implements CartLineService {
 		return cartLineRepository.findCartLineByCartId(cart.getId());
 	}
 
+	@Override
+	public CartLine findCartLineByCartIdAndProductId(int cartId, int id) {
+		// TODO Auto-generated method stub
+		return cartLineRepository.findCartLineByCartIdAndProductId(cartId, id);
+	}
+
 }

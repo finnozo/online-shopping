@@ -14,6 +14,7 @@ import com.isolutions4u.onlineshopping.model.CartLine;
 import com.isolutions4u.onlineshopping.model.Product;
 import com.isolutions4u.onlineshopping.service.CartLineService;
 import com.isolutions4u.onlineshopping.service.CartService;
+import com.isolutions4u.onlineshopping.service.ProductService;
 
 @Controller
 @RequestMapping("/cart")
@@ -22,6 +23,10 @@ public class CartController {
 	@Autowired
 	@Qualifier("cartLineService")
 	private CartLineService cartLineService;
+
+	@Autowired
+	@Qualifier("productService")
+	private ProductService productService;
 
 	@Autowired
 	@Qualifier("cartService")
@@ -39,6 +44,10 @@ public class CartController {
 
 			case "error":
 				modelAndView.addObject("message", "Something went wrong!!");
+				break;
+				
+			case "added":
+				modelAndView.addObject("message", "Cartline has been added sucessfully!");
 				break;
 
 			case "deleted":
@@ -78,7 +87,7 @@ public class CartController {
 	}
 
 	@GetMapping("/{id}/delete")
-	public String deletCart(@PathVariable int id) {
+	public String deleteCart(@PathVariable int id) {
 		// TODO : fetch the cartLine
 		CartLine cartLine = cartLineService.findCartLineById(id);
 		if (cartLine != null) {
@@ -91,6 +100,38 @@ public class CartController {
 			return "redirect:/cart/show?result=deleted";
 		} else {
 			return "redirect:/cart/show?result=error";
+		}
+	}
+
+	@GetMapping("/add/{id}/product")
+	public String addCart(@PathVariable int id) {
+		// TODO : fetch the cart
+		Cart cart = cartService.findCart();
+		CartLine cartLine = cartLineService.findCartLineByCartIdAndProductId(cart.getId(), id);
+		if (cartLine != null) {
+
+			/*cart.setGrandTotal(cart.getGrandTotal() - cartLine.getTotal());
+			cart.setCartLines(cart.getCartLines() - 1);
+			cartService.updateCart(cart);
+			// TODO : remove the cartLine
+			cartLineService.deleteCartLine(cartLine);
+			return "redirect:/cart/show?result=deleted";*/
+			return "";
+		} else {
+			cartLine = new CartLine();
+
+			Product product = productService.findProductById(id);
+			cartLine.setCartId(cart.getId());
+			cartLine.setProduct(product);
+			cartLine.setBuyingPrice(product.getUnitPrice());
+			cartLine.setProductCount(1);
+			cartLine.setTotal(product.getUnitPrice());
+			cartLine.setAvailable(true);
+			cartLineService.saveCartLine(cartLine);
+			cart.setCartLines(cart.getCartLines() + 1);
+			cart.setGrandTotal(cart.getGrandTotal() + cartLine.getTotal());
+			cartService.saveCart(cart);
+			return "redirect:/cart/show?result=added";
 		}
 	}
 
