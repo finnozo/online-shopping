@@ -28,17 +28,21 @@ public class CartController {
 	private CartService cartService;
 
 	@GetMapping("/show")
-	public ModelAndView showCart(@RequestParam(name = "result",required=false)String result) {
+	public ModelAndView showCart(@RequestParam(name = "result", required = false) String result) {
 		ModelAndView modelAndView = new ModelAndView("page");
-		
-		if(result != null) {
+
+		if (result != null) {
 			switch (result) {
 			case "updated":
-				modelAndView.addObject("message","CartLine has been updated sucessfully");
+				modelAndView.addObject("message", "CartLine has been updated sucessfully");
 				break;
-				
+
 			case "error":
-				modelAndView.addObject("message","Something went wrong!!");
+				modelAndView.addObject("message", "Something went wrong!!");
+				break;
+
+			case "deleted":
+				modelAndView.addObject("message", "Cart has been removed sucessfully");
 				break;
 			default:
 				break;
@@ -68,6 +72,23 @@ public class CartController {
 			cart.setGrandTotal(cart.getGrandTotal() - oldTotal + cartLine.getTotal());
 			cartService.updateCart(cart);
 			return "redirect:/cart/show?result=updated";
+		} else {
+			return "redirect:/cart/show?result=error";
+		}
+	}
+
+	@GetMapping("/{id}/delete")
+	public String deletCart(@PathVariable int id) {
+		// TODO : fetch the cartLine
+		CartLine cartLine = cartLineService.findCartLineById(id);
+		if (cartLine != null) {
+			Cart cart = cartService.findCart();
+			cart.setGrandTotal(cart.getGrandTotal() - cartLine.getTotal());
+			cart.setCartLines(cart.getCartLines() - 1);
+			cartService.updateCart(cart);
+			// TODO : remove the cartLine
+			cartLineService.deleteCartLine(cartLine);
+			return "redirect:/cart/show?result=deleted";
 		} else {
 			return "redirect:/cart/show?result=error";
 		}

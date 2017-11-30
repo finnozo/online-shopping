@@ -55,9 +55,9 @@
 									class="btn btn-info btn-sm">
 									<span class="glyphicon glyphicon-refresh"></span>
 								</button>
-								<button class="btn btn-danger btn-sm">
+								<a href="${contextRoot }/cart/${cartLine.id}/delete" class="btn btn-danger btn-sm">
 									<span class="glyphicon glyphicon-trash"></span>
-								</button>
+								</a>
 							</td>
 						</tr>
 
