@@ -21,31 +21,34 @@ public class CartLineServiceImpl implements CartLineService {
 	@Override
 	public CartLine findCartLineById(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return cartLineRepository.findOne(id);
 	}
 
 	@Override
 	public boolean saveCartLine(CartLine cartLine) {
 		// TODO Auto-generated method stub
-		return false;
+		 cartLineRepository.saveAndFlush(cartLine);
+		 return true;
 	}
 
 	@Override
 	public boolean updateCartLine(CartLine cartLine) {
 		// TODO Auto-generated method stub
-		return false;
+		cartLineRepository.saveAndFlush(cartLine);
+		return true;
 	}
 
 	@Override
 	public boolean deleteCartLine(CartLine cartLine) {
 		// TODO Auto-generated method stub
+		cartLineRepository.delete(cartLine);
 		return false;
 	}
 
 	@Override
 	public List<CartLine> findAllCartLine(int cartId) {
 		// TODO Auto-generated method stub
-		return null;
+		return cartLineRepository.findAll();
 	}
 
 	@Override
