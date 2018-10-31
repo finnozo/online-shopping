@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/codecentric/springboot-sample-app/badge.svg?branch=master)](http://www.pyarts.org)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
-Minimal [Spring Boot](http://projects.spring.io/spring-boot/) online-shopping.
+Minimal [Spring Boot](https://sushildangi.github.io/online-shopping/) online-shopping.
 
 
 This is an online shopping project using Spring Boot,Spring web-flow, Spring Rest Services and Hibernate. In this project we also used Spring Security with java and annotation configuration
@@ -18,8 +18,8 @@ For building and running the application you need:
 
 # Runnig this project 
   1. Clone this project https://github.com/sushildangi/online-shopping.git
-  2. create databases schema in mysql - __***online_shopping_db***__
-  3. edit __***username***__ and __***password***__ in __**applicaton.properties**__ file
+  2. create databases schema in mysql - **online_shopping_db**
+  3. edit **username** and **password** in **applicaton.properties** file
   4. Then run project using boot
   5. create user by signup 
   
