@@ -42,6 +42,6 @@ enjoy my friends
   
 ### Useful Links
 - Find out more about me
-- LinkedIn   : https://www.linkedin.com/in/sushil-dangi/​
-- Facebook   : https://www.facebook.com/dangi.sushil5​
-- Instagram  : https://www.instagram.com/d_s_py/
+- LinkedIn   : https://www.linkedin.com/in/sushil-dangi
+- Facebook   : https://www.facebook.com/dangi.sushil5
+- Instagram  : https://www.instagram.com/d_s_py
