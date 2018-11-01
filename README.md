@@ -20,8 +20,15 @@ For building and running the application you need:
   1. Clone this project https://github.com/sushildangi/online-shopping.git
   2. create databases schema in mysql - **online_shopping_db**
   3. edit **username** and **password** in **applicaton.properties** file
-  4. Then run project using boot
-  5. create user by signup 
+  4. Run Project One time using Spring boot command - **mvn spring-boot:run** or using eclipse IDE run as Java Application
+  5. Run this Query in mysql
+  ```sql 
+  insert into online_shopping_db.user_detail(contact_number,email,enabled,first_name,last_name,password,role) values ('9876543210','admin@gmail.com',true,'admin','admin','$2a$10$6UVHQoHhpoYZxBB.k9r.deSLTT0RD1Yk8GdggRywGw0Snr8syRDtG','ADMIN')
+  ```
+   **Password = 123456(in encoded Form)**
+  
+  6. Then Again run project using boot
+  7. create user by signup 
   
 ### Guides
 
