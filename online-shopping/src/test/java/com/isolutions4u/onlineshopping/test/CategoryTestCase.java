@@ -1,14 +1,5 @@
 package com.isolutions4u.onlineshopping.test;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-//import com.isolutions4u.onlineshopping.dao.CategoryDAO;
-import com.isolutions4u.onlineshopping.model.Category;
-
 public class CategoryTestCase {
 
 	/*private static AnnotationConfigApplicationContext context;

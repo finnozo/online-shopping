@@ -46,7 +46,7 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public Category findCategoryById(Integer id) {
 		// TODO Auto-generated method stub
-		Category category = categoryRepository.findOne(id);
+		Category category = categoryRepository.getOne(id);
 		if (!category.isActive()) {
 			category = null;
 		}
@@ -56,7 +56,7 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public String deleteCategory(Integer id) {
 		// TODO Auto-generated method stub
-		Category c = categoryRepository.findOne(id);
+		Category c = categoryRepository.getOne(id);
 		c.setActive(false);
 		categoryRepository.saveAndFlush(c);
 		return "Deleted Successfully";
