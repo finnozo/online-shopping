@@ -21,7 +21,7 @@ public class CartLineServiceImpl implements CartLineService {
 	@Override
 	public CartLine findCartLineById(int id) {
 		// TODO Auto-generated method stub
-		return cartLineRepository.findOne(id);
+		return cartLineRepository.getOne(id);
 	}
 
 	@Override
