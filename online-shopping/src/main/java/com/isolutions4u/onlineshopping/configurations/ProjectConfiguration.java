@@ -15,67 +15,66 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
-import org.springframework.webflow.mvc.servlet.FlowHandlerMapping;
-
 import org.springframework.webflow.mvc.servlet.FlowHandlerAdapter;
+import org.springframework.webflow.mvc.servlet.FlowHandlerMapping;
 
 @Configuration
 @EnableAspectJAutoProxy
 @ComponentScan(basePackages = "com.isolutions4u.onlineshopping")
 public class ProjectConfiguration extends WebMvcConfigurerAdapter {
 
-	@Autowired
-	private WebFlowConfig webFlowConfig;
+    @Autowired
+    private WebFlowConfig webFlowConfig;
 
-	@Override
-	public void configureViewResolvers(ViewResolverRegistry registry) {
-		
-		registry.viewResolver(getViewResolver());
-	}
-	
-	@Bean
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+
+        registry.viewResolver(getViewResolver());
+    }
+
+    @Bean
     public ViewResolver getViewResolver() {
-		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-		resolver.setPrefix("/WEB-INF/views/");
-		resolver.setSuffix(".jsp");
-		resolver.setViewClass(JstlView.class);
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setPrefix("/WEB-INF/views/");
+        resolver.setSuffix(".jsp");
+        resolver.setViewClass(JstlView.class);
         return resolver;
     }
 
-	@Bean
-	public MessageSource messageSource() {
-		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-		messageSource.setBasename("messages");
-		return messageSource;
-	}
+    @Bean
+    public MessageSource messageSource() {
+        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+        messageSource.setBasename("messages");
+        return messageSource;
+    }
 
-	@Bean(name = "multipartResolver")
-	public StandardServletMultipartResolver resolver() {
-		return new StandardServletMultipartResolver();
-	}
+    @Bean(name = "multipartResolver")
+    public StandardServletMultipartResolver resolver() {
+        return new StandardServletMultipartResolver();
+    }
 
-	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/static/**").addResourceLocations("/static/");
-	}
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/static/**").addResourceLocations("/static/");
+    }
 
-	@Bean
-	public FlowHandlerMapping flowHandlerMapping() {
-		FlowHandlerMapping handlerMapping = new FlowHandlerMapping();
-		handlerMapping.setOrder(-1);
-		handlerMapping.setFlowRegistry(this.webFlowConfig.flowRegistry());
-		return handlerMapping;
-	}
+    @Bean
+    public FlowHandlerMapping flowHandlerMapping() {
+        FlowHandlerMapping handlerMapping = new FlowHandlerMapping();
+        handlerMapping.setOrder(-1);
+        handlerMapping.setFlowRegistry(this.webFlowConfig.flowRegistry());
+        return handlerMapping;
+    }
 
-	@Bean
-	public FlowHandlerAdapter flowHandlerAdapter() {
-		FlowHandlerAdapter handlerAdapter = new FlowHandlerAdapter();
-		handlerAdapter.setFlowExecutor(this.webFlowConfig.flowExecutor());
-		handlerAdapter.setSaveOutputToFlashScopeOnRedirect(true);
-		return handlerAdapter;
-	}
-	
-	@Bean
+    @Bean
+    public FlowHandlerAdapter flowHandlerAdapter() {
+        FlowHandlerAdapter handlerAdapter = new FlowHandlerAdapter();
+        handlerAdapter.setFlowExecutor(this.webFlowConfig.flowExecutor());
+        handlerAdapter.setSaveOutputToFlashScopeOnRedirect(true);
+        return handlerAdapter;
+    }
+
+    @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         return bCryptPasswordEncoder;

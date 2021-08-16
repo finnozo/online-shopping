@@ -1,200 +1,209 @@
 html {
-	height: 100%;
+    height: 100%;
 }
 
 body {
-	padding-top: 70px;
-	height: 100%;
+    padding-top: 70px;
+    height: 100%;
 }
 
 .slide-image {
-	width: 100%;
+    width: 100%;
 }
 
 .carousel-holder {
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .carousel-control, .item {
-	border-radius: 4px;
+    border-radius: 4px;
 }
 
 .caption {
-	height: 130px;
-	overflow: hidden;
+    height: 130px;
+    overflow: hidden;
 }
 
 .caption h4 {
-	white-space: nowrap;
+    white-space: nowrap;
 }
 
 .thumbnail img {
-	width: 100%;
+    width: 100%;
 }
 
 .ratings {
-	padding-right: 10px;
-	padding-left: 10px;
-	color: #d17581;
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
 }
 
 .thumbnail {
-	padding: 0;
+    padding: 0;
 }
 
 .thumbnail .caption-full {
-	padding: 9px;
-	color: #333;
+    padding: 9px;
+    color: #333;
 }
 
 footer {
-	margin: 0;
+    margin: 0;
 }
 
 /*
 	custom styling
 */
 .wrapper {
-	min-height: 100%;
-	position: relative;
+    min-height: 100%;
+    position: relative;
 }
 
 .content {
-	padding-bottom: 60px; /*height of the footer*/
+    padding-bottom: 60px; /*height of the footer*/
 }
 
 .footer {
-	width: 100%;
-	position: absolute;
-	bottom: 20px;
-	height: 60px;
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    height: 60px;
 }
 
 .dataTableImg {
-	width: 100px;
-	height: 100px;
+    width: 100px;
+    height: 100px;
 }
 
 .has-success {
-	color: #4582ec;
+    color: #4582ec;
 }
 
 .help-block {
-	color: #FF0000;
+    color: #FF0000;
 }
 
 .adminDataTableImg {
-	height: 50px;
-	width: 50px;
+    height: 50px;
+    width: 50px;
 }
 
 /*Toggle Switch code*/
 
 /* The switch - the box around the slider */
 .switch {
-	width: 50px;
-	height: 30px;
-	position: relative;
-	display: inline-block;
+    width: 50px;
+    height: 30px;
+    position: relative;
+    display: inline-block;
 }
 
 /* Hide default HTML checkbox */
 .switch input {
-	display: none;
+    display: none;
 }
 
 /* The slider */
 .slider {
-	position: absolute;
-	cursor: pointer;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: #ccc;
-	border-radius: 30px;
-	transition: .5s;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 30px;
+    transition: .5s;
 }
 
 .slider:before {
-	position: absolute;
-	content: "";
-	height: 20px;
-	width: 20px;
-	left: 5px;
-	bottom: 5px;
-	background-color: #fff;
-	border-radius: 50%;
-	transition: .5s;
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 5px;
+    bottom: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: .5s;
 }
 
-input:checked+.slider {
-	background-color: #1863E6;
+input:checked + .slider {
+    background-color: #1863E6;
 }
 
-input:focus+.slider {
-	box-shadow: 0 0 1px #2196F3;
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
 }
 
-input:checked+.slider:before {
-	transform: translateX(20px);
+input:checked + .slider:before {
+    transform: translateX(20px);
 }
 
 .table-responsive {
-	overflow-x: inherit;
+    overflow-x: inherit;
 }
 
 /* Cart CSS */
-.table>tbody>tr>td, .table>tfoot>tr>td {
-	vertical-align: middle;
+.table > tbody > tr > td, .table > tfoot > tr > td {
+    vertical-align: middle;
 }
 
 @media screen and (max-width: 600px) {
-	table#cart tbody td .form-control {
-		width: 20%;
-		display: inline !important;
-	}
-	.actions .btn {
-		width: 36%;
-		margin: 1.5em 0;
-	}
-	.actions .btn-info {
-		float: left;
-	}
-	.actions .btn-danger {
-		float: right;
-	}
-	table#cart thead {
-		display: none;
-	}
-	table#cart tbody td {
-		display: block;
-		padding: .6rem;
-		min-width: 320px;
-	}
-	table#cart tbody tr td:first-child {
-		background: #333;
-		color: #fff;
-	}
-	table#cart tbody td:before {
-		content: attr(data-th);
-		font-weight: bold;
-		display: inline-block;
-		width: 8rem;
-	}
-	table#cart tfoot td {
-		display: block;
-	}
-	table#cart tfoot td .btn {
-		display: block;
-	}
+    table#cart tbody td .form-control {
+        width: 20%;
+        display: inline !important;
+    }
+
+    .actions .btn {
+        width: 36%;
+        margin: 1.5em 0;
+    }
+
+    .actions .btn-info {
+        float: left;
+    }
+
+    .actions .btn-danger {
+        float: right;
+    }
+
+    table#cart thead {
+        display: none;
+    }
+
+    table#cart tbody td {
+        display: block;
+        padding: .6rem;
+        min-width: 320px;
+    }
+
+    table#cart tbody tr td:first-child {
+        background: #333;
+        color: #fff;
+    }
+
+    table#cart tbody td:before {
+        content: attr(data-th);
+        font-weight: bold;
+        display: inline-block;
+        width: 8rem;
+    }
+
+    table#cart tfoot td {
+        display: block;
+    }
+
+    table#cart tfoot td .btn {
+        display: block;
+    }
 }
 
 .cartImg {
-	width: 100px;
-	height: 100px;
+    width: 100px;
+    height: 100px;
 }
 
 .unavailable {
-	color: red;
+    color: red;
 }

@@ -1,26 +1,26 @@
 package com.isolutions4u.onlineshopping.service;
 
-import java.util.List;
-
 import com.isolutions4u.onlineshopping.model.Product;
+
+import java.util.List;
 
 public interface ProductService {
 
-	String saveProduct(Product product);
+    String saveProduct(Product product);
 
-	List<Product> findAllProducts();
-	
-	List<Product> findAllProductsForAdmin();
+    List<Product> findAllProducts();
 
-	Product findProductById(Integer id);
+    List<Product> findAllProductsForAdmin();
 
-	String deleteProduct(Integer id);
+    Product findProductById(Integer id);
 
-	String updateProduct(Product product);
+    String deleteProduct(Integer id);
 
-	List<Product> findProductByCategoryId(Integer categoryId);
+    String updateProduct(Product product);
 
-	Product findProductByIdForAdmin(int id);
-	
+    List<Product> findProductByCategoryId(Integer categoryId);
+
+    Product findProductByIdForAdmin(int id);
+
 
 }

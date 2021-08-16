@@ -4,20 +4,20 @@ import java.io.Serializable;
 
 public class ProductNotFoundExceptoion extends Exception implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private String message;
+    private String message;
 
-	public ProductNotFoundExceptoion(String message) {
-		this.message = System.currentTimeMillis() + " : " + message;
-	}
+    public ProductNotFoundExceptoion(String message) {
+        this.message = System.currentTimeMillis() + " : " + message;
+    }
 
-	public ProductNotFoundExceptoion() {
-		this("Product Not Available!");
-	}
+    public ProductNotFoundExceptoion() {
+        this("Product Not Available!");
+    }
 
-	public String getMessage() {
-		return message;
-	}
+    public String getMessage() {
+        return message;
+    }
 
 }

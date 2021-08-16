@@ -1,19 +1,19 @@
 package com.isolutions4u.onlineshopping.service;
 
-import java.util.List;
-
 import com.isolutions4u.onlineshopping.model.Category;
+
+import java.util.List;
 
 public interface CategoryService {
 
-	String saveCategory(Category category);
+    String saveCategory(Category category);
 
-	List<Category> findAllCategories();
+    List<Category> findAllCategories();
 
-	Category findCategoryById(Integer id);
+    Category findCategoryById(Integer id);
 
-	String deleteCategory(Integer id);
+    String deleteCategory(Integer id);
 
-	String updateCategory(Category branch);
+    String updateCategory(Category branch);
 
 }
